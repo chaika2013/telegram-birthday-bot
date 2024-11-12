@@ -26,3 +26,7 @@ docker-build: ## build in docker
 docker-image: ## build result docker image
 	DOCKER_BUILDKIT=1 docker build $(DOCKER_BUILD_ARGS) -t $(DOCKER_IMAGE):$(DOCKER_TAG) .
 .PHONY: docker-image
+
+docker-push: ## push docker image
+	DOCKER_BUILDKIT=1 docker push $(DOCKER_IMAGE):$(DOCKER_TAG)
+.PHONY: docker-image
